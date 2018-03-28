@@ -1,0 +1,19 @@
+<template name="baseLayout">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">MyApp Test</a>
+            <ul id="nav-mobile" class="left">
+                {{>loginButtons}}
+                {{#if currentUser}}
+                    <li><a href="{{pathFor 'profile'}}">Mi perfil</a></li>
+                    <li><a href="{{pathFor 'project'}}">Proyectos</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+    {{#momentum pluguin="growl"}}
+        {{#if Template.subscriptionsReady}}
+            {{>yield}}
+        {{/if}}
+    {{/momentum}}
+</template>
